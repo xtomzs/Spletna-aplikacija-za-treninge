@@ -1,0 +1,6 @@
+@diploma_strava_ex_api_HostAddress = http://localhost:5104
+
+GET {{diploma_strava_ex_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

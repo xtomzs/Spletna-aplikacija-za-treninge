@@ -1,0 +1,81 @@
+﻿@{
+    var appTitle = "Strava Ex";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - @appTitle</title>
+
+    <!-- Material Design for Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.0/mdb.min.css"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          rel="stylesheet" />
+    
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="/">
+                <i class="fa-brands fa-strava me-2"></i>@appTitle
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/StravaClubs/Index">Clubs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/StravaPlanner/Index">Planner</a></li>
+                    @* <li class="nav-item"><a class="nav-link" href="/Activities">Activities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Stats">Stats</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Account">Account</a></li> *@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="container my-5">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted py-3 border-top bg-white">
+        @* &copy; @DateTime.Now.Year @appTitle — Built with ❤️ using Material Design *@
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
