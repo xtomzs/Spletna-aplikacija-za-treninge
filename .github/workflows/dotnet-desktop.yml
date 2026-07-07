@@ -85,7 +85,7 @@ jobs:
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
       with:
-        files: '${{env.DOTNET_ROOT}}/Spletna-aplikacija-za-treninge/appsettings.json'
+        files: 'appsettings.json'
       env:
         Authentication.clientId: ${{ secrets.CLIENT_ID }}
         Authentication.clientSecret: ${{ secrets.CLIENT_SECRET }}
