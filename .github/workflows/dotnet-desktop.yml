@@ -87,8 +87,8 @@ jobs:
       with:
         files: '${{env.DOTNET_ROOT}}/Spletna-aplikacija-za-treninge/appsettings.json'
       env:
-        Authentication.clientId: ${{ secrets.SOME_CONNECTION_STRING }}
-        Authentication.clientSecret: ${{ secrets.SERVER_ROOT_ADDRESS }}
+        Authentication.clientId: ${{ secrets.CLIENT_ID }}
+        Authentication.clientSecret: ${{ secrets.CLIENT_SECRET }}
         
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
