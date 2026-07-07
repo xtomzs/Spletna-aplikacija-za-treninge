@@ -13,16 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-  
-    steps:
-     #substitute production appsettings entries to appsettings json file
-    - name: App Settings Variable Substitution
-      uses: microsoft/variable-substitution@v1
-      with:
-        files: './appsettings.json'
-      env:
-        Authentication.clientId: ${{ secrets.CLIENT_ID }}
-        Authentication.clientSecret: ${{ secrets.CLIENT_SECRET }}
+    env:
+      Solution_Name: diploma_strava_ex_api      
+    steps:            
     #npm install
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
@@ -39,6 +32,14 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
+    # Substitute production appsettings entries to appsettings json file
+    - name: App Settings Variable Substitution
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: 'appsettings.json'
+      env:
+        Authentication.clientId: ${{ secrets.CLIENT_ID }}
+        Authentication.clientSecret: ${{ secrets.CLIENT_SECRET }}
     - name: Build
       run: dotnet build --no-restore
     - name: Test
